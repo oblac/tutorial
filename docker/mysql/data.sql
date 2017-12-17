@@ -29,7 +29,7 @@ insert  into `jd_response`(`response_id`,`text`, `message_id`) values (1,'And th
 insert  into `jd_response`(`response_id`,`text`, `message_id`) values (2,'Why not the second reply :)', 1);
 
 insert  into `jd_message`(`message_id`,`text`) values (2,'The second message is not bad at all.');
-insert  into `jd_response`(`response_id`,`text`, `message_id`) values (3,'Of course:)', 4);
+insert  into `jd_response`(`response_id`,`text`, `message_id`) values (3,'Of course:)', 2);
 
 insert  into `jd_message`(`message_id`,`text`) values (3,'This is the last message w/o replies (yet).');
 
