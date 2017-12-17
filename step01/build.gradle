@@ -9,7 +9,6 @@ repositories {
 
 dependencies {
     compile 'org.jodd:jodd-joy:4.0'
-    runtime 'mysql:mysql-connector-java:5.1.45'
 }
 
 task wrapper(type: Wrapper) {
