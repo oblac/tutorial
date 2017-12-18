@@ -1,0 +1,295 @@
+@import url(reset.css);
+
+body {
+	color: #222;
+	font-size: 1em;
+	line-height: 1.4;
+	background-position: center 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+b {
+	font-weight: bold;
+}
+i {
+	font-style: italic;
+}
+
+div#tip {
+font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	font-size: 12px;
+	color: #777;
+	padding: 0 0 4px 4px;
+	line-height: 12px;
+	letter-spacing: -1px;
+}
+
+p, a, ul li {
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	font-size: 18px;
+	color: #222;
+}
+div.p, p, ul {
+	margin-bottom: 16px;
+}
+p.info {
+	border-left: 10px solid #000;
+	margin: 30px;
+	padding: 10px 0 10px 20px;
+}
+ul li {
+	margin-left: 30px;
+	list-style-type: square;
+}
+a {
+	border-bottom: 1px dotted #000;
+	text-decoration: none;
+	padding: 0 2px;
+}
+a:hover {
+	color: #444;
+	background-color: #eee;
+}
+h1, h2, h3, h2 a {
+	font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
+	text-align: center;
+}
+h2 a {
+	font-size: 30px;
+	color: #555;
+	border: 0;
+}
+h1 {
+	font-size: 80px;
+	font-weight: bold;
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+h2 {
+	font-size: 30px;
+	font-weight: bold;
+	color: #555;
+	margin: 40px 0 10px 0;
+}
+h3 {
+	text-align: left;
+	font-size: 18px;
+}
+
+p.img img {
+	border: 0;
+}
+p.img {
+	text-align: center;
+}
+
+.more {
+	display: none;
+	font-size: 14px;
+	line-height: 16px;
+}
+.more p {
+	font-size: 14px;
+	line-height: 16px;
+}
+.amore {
+	letter-spacing: -1px;
+	text-align: right;
+	margin-top: 30px;
+}
+
+.section {
+	padding: 0; margin: 0;
+	width: 100%;
+	position: relative;
+	background-image: url(grain.png);
+}
+.content {
+	width: 800px;
+	margin: 0 auto;
+	padding: 70px 0;
+}
+.text {
+	margin: 0 100px 16px 100px;
+}
+
+.theme-yellow {color:#ffc300;}
+.theme-black {color:#333;}
+.theme-darkblue {color:#002130;}
+.theme-pink {color:#e9a1b9;}
+.theme-green {color:#c2d53f;}
+.theme-blue {color:#02c9c9;}
+.theme-gray {color:#605f5f;}
+.theme-lightgray {color:#dcdcdc;}
+.theme-lightblue {color:#b7d3d3;}
+
+h1 span {
+	background-color: #222;
+	color:#fff;
+}
+h2 span {
+	background-color: #555;
+}
+
+#block0 {
+	background-color: #ffffff;
+	z-index: 0;
+}
+#block1 {
+	background-color: #dcdcdc;
+	z-index: 10;
+}
+#block1 p.info {
+	color:#999;
+	border-color: #999;
+}
+#block2 {
+	background-color: #ffc300;
+	z-index: 20;
+}
+#block2 p.info {
+	color:#9f7900;
+	border-color: #9f7900;
+}
+#block3 {
+	background-color: #02c9c9;
+	z-index: 30;
+}
+#block3 p.info {
+	color: #017d7d;
+	border-color: #017d7d;
+}
+#block4 {
+	background-color: #e9a1b9;
+	z-index: 40;
+}
+#block4 p.info {
+	color: #916473;
+	border-color: #916473;
+}
+#block5 {
+	background-color: #c2d53f;
+	z-index: 50;
+}
+#block5 p.info {
+	color: #798527;
+	border-color: #798527;
+}
+#block6 {
+	background-color: #605f5f;
+	z-index: 60;
+}
+#block6 p.info {
+	color: #fff;
+	border-color: #fff;
+}
+
+#block6 h2 {
+	color: #dcdcdc;
+}
+#block6 h2 a {
+	color: #fff;
+}
+#block6 p {
+	color: #fff;
+}
+
+#block7 {
+	background-color: #dcdcdc;
+	z-index: 70;
+}
+
+.circle {
+	background-color: #666;
+	float: left;
+	width: 60px;
+	font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	-moz-border-radius: 60px;
+	-webkit-border-radius: 60px;
+	-o-border-radius: 60px;
+	border-radius: 60px;
+	text-align: center;
+	position: relative;
+	left: -30px;
+	top: 10px;
+	padding: 10px 0 10px 20px;
+	margin-top: 10px;
+}
+.stick {
+	position: fixed;
+	top: 0;
+}
+.click {
+	padding-left: 100px
+}
+a.scroller {
+	display: block;
+	border: 0;
+}
+a.scroller:hover {
+	border: 0;
+	background: transparent;
+}
+
+#block6 .circle {
+	background-color: #dcdcdc;
+}
+
+pre {
+	background-color: #444;
+	color:#fff;
+	margin: 0 40px 10px 20px;
+	padding: 0 20px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+}
+code {
+	margin: 0 4px;
+	font-family: "Anonymous Pro", Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+}
+pre code {
+	font-size: 14px;
+}
+pre {
+	line-height: 14px;
+}
+span.bull:before {
+	content:'\2022';
+	padding: 0 4px;
+}
+p.gap {
+	margin-top: 40px; text-align:center;
+}
+
+@media screen and (max-width: 800px) {
+	.content {
+		width: 400px;
+	}
+	.text {
+		margin: 0 40px 16px 40px;
+	}
+	h1 {
+		font-size: 40px;
+	}
+	h2 {
+		font-size: 20px;
+	}
+	p, a, ul li {
+		font-size: 14px;
+		line-height: 16px;
+	}
+	pre code {
+		font-size: 12px;
+		letter-spacing: -1px;
+	}
+	pre {
+		margin: 0 0 10px 0;
+		padding: 6px;
+	}
+
+}

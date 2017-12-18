@@ -1,0 +1,52 @@
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymlinks
+Options +SymLinksIfOwnerMatch
+RewriteEngine on
+
+### custom error pages
+ErrorDocument 400 /400.shtml
+ErrorDocument 401 /401.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 404 /404.shtml
+ErrorDocument 500 /500.shtml
+
+
+### default filename
+DirectoryIndex index.html
+
+
+### preventing directory listings
+Options -Indexes
+
+
+### cache
+# 1 week
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|pdf)$">
+	Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+# 2 days
+<FilesMatch ".(xml|txt|css|js)$">
+	Header set Cache-Control "max-age=172800, proxy-revalidate"
+</FilesMatch>
+# 1 min
+<FilesMatch ".(html|htm)$">
+	Header set Cache-Control "max-age=60, private, proxy-revalidate"
+</FilesMatch>
+# none
+<FilesMatch ".(pl|php|cgi|spl)$">
+	Header unset Cache-Control
+	Header unset Expires
+	Header unset Last-Modified
+	FileETag None
+	Header unset Pragma
+</FilesMatch>
+
+### loose the 'www' prefix
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,NC,L]
+
+### prevent addon access from main domain ###
+RewriteCond %{HTTP_HOST} !^(www\.)?joddframework\.org$   [NC]
+RewriteRule ^(.*)$ "http://noodd.com/" [R=301,NC,L]
+
+###
