@@ -18,7 +18,7 @@ public class IndexAction {
     @Out
 	List<Message> messages;
 
-    @Action
+    @Action(alias = "ndx")
     public void view() {
         messages = appService.findLastMessagesWithResponses(10);
     }

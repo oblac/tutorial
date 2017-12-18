@@ -24,6 +24,6 @@ public class MessageAction {
 	@PostAction
 	public String add() {
 		appService.addMessage(message);
-		return "redirect:/<index>";
+		return "redirect:/<ndx>";
 	}
 }
