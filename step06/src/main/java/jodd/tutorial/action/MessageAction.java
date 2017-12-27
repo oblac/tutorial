@@ -4,10 +4,11 @@ import jodd.madvoc.meta.Action;
 import jodd.madvoc.meta.In;
 import jodd.madvoc.meta.MadvocAction;
 import jodd.madvoc.meta.PostAction;
-import jodd.madvoc.result.Result;
+import jodd.madvoc.result.Redirect;
 import jodd.petite.meta.PetiteInject;
 import jodd.tutorial.model.Message;
 import jodd.tutorial.service.AppService;
+
 
 @MadvocAction
 public class MessageAction {
@@ -23,8 +24,8 @@ public class MessageAction {
 	Message message;
 
 	@PostAction
-	public Result add() {
+	public Redirect add() {
 		appService.addMessage(message);
-		return Result.redirect().to("/<ndx>");
+		return Redirect.to("/<ndx>");
 	}
 }

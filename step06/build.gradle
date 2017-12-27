@@ -11,10 +11,10 @@ dependencies {
     compile 'org.jodd:jodd-joy:4.0'
     runtime 'mysql:mysql-connector-java:5.1.45'
 
-    providedRuntime 'javax.servlet:javax.servlet-api:4.0.0'
-    providedRuntime 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.0'
+    providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '4.4'
+	gradleVersion = '4.4.1'
 }
