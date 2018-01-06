@@ -3,7 +3,7 @@ package jodd.tutorial.action;
 import jodd.madvoc.meta.Action;
 import jodd.madvoc.meta.In;
 import jodd.madvoc.meta.MadvocAction;
-import jodd.madvoc.meta.PostAction;
+import jodd.madvoc.meta.POST;
 import jodd.madvoc.result.Redirect;
 import jodd.petite.meta.PetiteInject;
 import jodd.tutorial.model.Message;
@@ -23,7 +23,7 @@ public class MessageAction {
 	@In
 	Message message;
 
-	@PostAction
+	@POST @Action
 	public Redirect add() {
 		appService.addMessage(message);
 		return Redirect.to("/<ndx>");

@@ -70,7 +70,7 @@ BLOCK 1
         Please <a href="https://github.com/oblac/tutorial">checkout the tutorial</a> - we have all the files you need
         already prepared for you!
     </p>
-    
+
 
     <h3>Folders</h3>
     <p>
@@ -187,7 +187,7 @@ BLOCK 2
     <p class="info">
         Again, the source for this step awaits you on the <a href="https://github.com/oblac/tutorial/tree/master/step02">GitHub</a>!
     </p>
-    
+
 
     <h3>Gradle dependencies</h3>
 
@@ -203,7 +203,7 @@ dependencies {
 
     providedRuntime 'javax.servlet:javax.servlet-api:4.0.0'
     providedRuntime 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
-}                    
+}
             </code></pre>
     </div>
 
@@ -219,7 +219,7 @@ dependencies {
             <pre><code>
 @WebListener
 public class AppContextListener extends JoyContextListener {
-}                    
+}
             </code></pre>
     </div>
 
@@ -714,7 +714,7 @@ public class MessageAction {
     @In
     Message message;
 
-    @PostAction
+    @POST @Action
     public String add() {
         appService.addMessage(message);
         return "redirect:/&lt;index&gt;";
@@ -794,7 +794,7 @@ public class MessageAction {
 
     final Result result = new Result();
 
-    @PostAction
+    @POST @Action
     public void add() {
         appService.addMessageAlt(message);
         result.redirectTo(IndexAction.class).view();
@@ -835,7 +835,7 @@ BLOCK 6
 <div id="block6" class="section">
         <div id="scroller-anchor-6"></div><a id="scroller-6" href="#" onclick="return show(6);" class="scroller"><div class="circle theme-gray">6</div></a>
         <div class="content"><div class="text">
-    
+
         <h2>Give Me Some REST!</h2>
 
         <p>
@@ -874,7 +874,7 @@ public class MessageAction {
         </p>
 
         <p>
-            And that's it! Return a message object and it will be serialized to JSON.            
+            And that's it! Return a message object and it will be serialized to JSON.
         </p>
 
 </div></div></div>
