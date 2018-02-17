@@ -37,6 +37,8 @@ function inverter() {
 	});
 }
 
+var firstTime = true;
+
 function circleSectionLogic(screenWidth) {
 	var elementPosition;
 	if (screenWidth >= 1024) {
@@ -49,7 +51,16 @@ function circleSectionLogic(screenWidth) {
     $('.vertical-line').each(function() {
       $(this).css('left', elementPosition + 46);
     });
+
+    if (firstTime === true) {
 		initLogoAnimation(elementPosition - 20);
+		firstTime = false;
+	}
+	else {
+		var finalDestination = elementPosition - 20;
+		$('.animated-logo').css({ 'top': 80 + 'px', 'left': finalDestination + 'px'});
+	}
+
     $('.scroll-up').css('right', elementPosition - 60);
 		$('.loop-logo').each(function() {
 			$(this).css('right', elementPosition - 50);
@@ -58,7 +69,8 @@ function circleSectionLogic(screenWidth) {
 }
 
 function initLogoAnimation(finalDestination) {
-	$('.animated-logo').addClass('animate').css({ 'right': -160 + 'px', 'transform': 'rotate(-100deg)' });
+	$('.animated-logo').css({ 'right': -160 + 'px', 'transform': 'rotate(-100deg)' });
+	$('.animated-logo').addClass('animate');
 
 	setTimeout(function() {
 		$('.animated-logo').css({ 'top': -160 + 'px', 'left': 'initial', 'right': 110 + '%', 'transform': 'rotate(-110deg)' });
