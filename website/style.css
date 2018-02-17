@@ -32,10 +32,14 @@ p, a, ul li {
 	color: #222;
 	text-align: justify;
 }
-div.p,
-p,
-ul {
+div.p, p, ul {
 	margin-bottom: 16px;
+}
+p#mission {
+	font-size: 24px;
+	margin-bottom: 20px;
+	font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
+	color: #333;
 }
 p.info {
 	margin: 30px 30px 30px 10px;
