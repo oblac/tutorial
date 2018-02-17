@@ -40,8 +40,8 @@ ul {
 p.info {
 	margin: 30px 30px 30px 10px;
 	padding: 10px 0 10px 40px;
-	background: url(github.svg) no-repeat 0 center;
-	background-size: 30px;
+	background: url(git.svg) no-repeat 0 center;
+	background-size: 24px;
 	font-size: 14px;
     line-height: 16px;
     font-style: italic;
@@ -129,6 +129,9 @@ p.img {
 .show-single-snippet {
 	display: inline-block;
 	margin-bottom: 20px;
+	font-size: 10px;
+	border: 0;
+	text-transform: uppercase;
 }
 
 .section {
@@ -328,6 +331,14 @@ h2 span {
 }
 #block6 p {
 	color: #fff;
+}
+#block6 p a {
+	color: #fff;
+	border-bottom-color: #fff;
+}
+#block6 p a:hover {
+	background-color: #dcdcdc;
+	color: #605f5f;
 }
 
 #block7 {

@@ -172,7 +172,7 @@ $(document).ready(function() {
 
 	$('.scroll-up').click(function () {
 			$("html, body").animate({
-					scrollTop: 0
+				scrollTop: 0
 			}, 600);
 			return false;
 	});
