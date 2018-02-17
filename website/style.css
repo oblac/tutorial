@@ -26,9 +26,7 @@ div#tip {
 	letter-spacing: -1px;
 }
 
-p,
-a,
-ul li {
+p, a, ul li {
 	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 	font-size: 18px;
 	color: #222;
@@ -40,9 +38,18 @@ ul {
 	margin-bottom: 16px;
 }
 p.info {
-	border-left: 10px solid #000;
-	margin: 30px;
-	padding: 10px 0 10px 20px;
+	margin: 30px 30px 30px 10px;
+	padding: 10px 0 10px 40px;
+	background: url(github.svg) no-repeat 0 center;
+	background-size: 30px;
+	font-size: 14px;
+    line-height: 16px;
+    font-style: italic;
+}
+p.info a {
+	font-size: 14px;
+    line-height: 16px;
+    font-style: italic;
 }
 ul li {
 	margin-left: 30px;
@@ -82,12 +89,19 @@ h2 {
 }
 h3 {
 	text-align: left;
-	font-size: 18px;
+	font-size: 20px;
 	margin-top: 20px;
+	padding-left: 0;
+	font-weight: bold;
 }
 
 p.img img {
 	border: 0;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
 }
 p.img {
 	text-align: center;
@@ -101,7 +115,7 @@ p.img {
 .more img {
 	max-width: 100%;
 }
-.more p {
+.more p, .more p a {
 	font-size: 14px;
 	line-height: 16px;
 	font-style: italic;
@@ -230,10 +244,6 @@ h2 span {
 	border-top: 120px solid #dcdcdc;
 	background-color: #ffc300;
 }
-#block1 p.info {
-	color: #999;
-	border-color: #999;
-}
 #block1 .circle,
 #block1 .vertical-line {
 	color: #555;
@@ -247,10 +257,6 @@ h2 span {
 #block2.section:after {
 	border-top: 120px solid #ffc300;
 	background-color: #02c9c9;
-}
-#block2 p.info {
-	color: #9f7900;
-	border-color: #9f7900;
 }
 #block2 .circle,
 #block2 .vertical-line {
@@ -266,10 +272,6 @@ h2 span {
 	border-top: 120px solid #02c9c9;
 	background-color: #e9a1b9;
 }
-#block3 p.info {
-	color: #017d7d;
-	border-color: #017d7d;
-}
 #block3 .circle,
 #block3 .vertical-line {
 	color: #555;
@@ -283,10 +285,6 @@ h2 span {
 #block4.section:after {
 	border-top: 120px solid #e9a1b9;
 	background-color: #c2d53f;
-}
-#block4 p.info {
-	color: #916473;
-	border-color: #916473;
 }
 #block4 .circle,
 #block4 .vertical-line {
@@ -302,10 +300,6 @@ h2 span {
 	border-top: 120px solid #c2d53f;
 	background-color: #605f5f;
 }
-#block5 p.info {
-	color: #798527;
-	border-color: #798527;
-}
 #block5 .circle,
 #block5 .vertical-line {
 	color: #555;
@@ -319,10 +313,6 @@ h2 span {
 #block6.section:after {
 	border-top: 120px solid #605f5f;
 	background-color: #dcdcdc;
-}
-#block6 p.info {
-	color: #fff;
-	border-color: #fff;
 }
 #block6 .circle,
 #block6 .vertical-line {
