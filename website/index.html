@@ -6,6 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
     <title> Jodd µicro-frameworks </title>
     <meta name="description" content="open-source jodd µicro frameworks tutorial">
     <link rel="stylesheet" href="style.css">
@@ -22,6 +26,7 @@
     <div id="block0" class="section">
       <div class="content">
         <h1>Jodd <em><span>&#181;icro</span></em> frameworks</h1>
+
         <div class="text">
 
           <p>
@@ -72,7 +77,7 @@
             Please <a href="https://github.com/oblac/tutorial">checkout the tutorial</a> - we have all the files you need already prepared for you!
           </p>
           <h3>Folders</h3>
-          <p >
+          <p>
             In the project's root, create <a href="https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html" target="_blank">standard Maven folder layout</a> for web projects.
           <p>
 
@@ -85,13 +90,12 @@
           /java
           /resources
           /webapp
-      /test
-                    </code>
+      /test</code>
                   </pre>
               </div>
 
               <h3>Gradle</h3>
-              <p >
+              <p>
                 We will use <a href="http://www.gradle.org/" target="_blank">Gradle</a> for building; be sure to have it installed. Create a simple <code>build.gradle</code> script and add the single dependency to <a href="http://jodd.org/joy" title="What is Jodd Joy?">Jodd Joy</a>.
                 That's all what we need for now :)
               </p>
@@ -105,8 +109,7 @@ repositories {
 }
 dependencies {
     compile 'org.jodd:jodd-joy:4.1.1'
-}
-            </code>
+}</code>
           </pre>
           <p>
             Execute the following command in the project's root: <code>gradle wrapper</code> to initialize your Gradle project. This will create the shell script
@@ -119,7 +122,7 @@ dependencies {
           <a href="http://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA</a> works very nicely with this setup.
         </p>
         <h3>Database</h3>
-        <p >
+        <p>
           It's time to set up the database: <code>jodd-tutorial</code> in the <a href="http://www.mysql.com/" target="_blank">MySql</a>. We have just two tables: <code>jd_message</code> and <code>jd_response</code>: one message may have several
           comments. Yes, we made a bad decision by naming the 'comments' as 'responses'; please forgive us.
         </p>
@@ -130,8 +133,7 @@ dependencies {
           <pre>
             <code>
 > cd docker
-> docker-compose up -d
-            </code>
+> docker-compose up -d</code>
           </pre>
           </div>
           <h3>Tomcat</h3>
@@ -181,7 +183,7 @@ dependencies {
 
           <h3>Gradle dependencies</h3>
 
-          <p >
+          <p>
             Obviously, we need to add some more dependencies: for MySql driver and servlets jars.
           </p>
 
@@ -194,14 +196,13 @@ dependencies {
 
     providedRuntime 'javax.servlet:javax.servlet-api:4.1.0'
     providedRuntime 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
-}
-            </code>
+}</code>
           </pre>
           </div>
 
           <h3>Web application</h3>
 
-          <p >
+          <p>
             While we can register it in <code>web.xml</code>, more convenient way would be to simply create a <code>WebListener</code> based on <code>JoyContextListener</code> class. That is all we need for now: just an empty subclass annotated with
             <code>@WebListener</code> annotation.
           </p>
@@ -212,13 +213,12 @@ dependencies {
 @WebListener
   public class AppContextListener extends JoyContextListener {
 
-  }
-            </code>
+  }</code>
           </pre>
           </div>
 
           <h3>Properties</h3>
-          <p >
+          <p>
             By default, Jodd Joy properties are stored in the file <code>joy.props</code>, located in the classpath root. Props file is a powerful extension of Java properties. The initial properties just set the database connection and the connection
             pool.
           </p>
@@ -239,8 +239,7 @@ dbpool.user=${jdbc.username}
 dbpool.password=${jdbc.password}
 dbpool.maxConnections=50
 dbpool.minConnections=5
-dbpool.waitIfBusy=true
-        </code>
+dbpool.waitIfBusy=true</code>
       </pre>
 
             <p>
@@ -298,7 +297,7 @@ dbpool.waitIfBusy=true
 
           <h3>Model</h3>
 
-          <p >
+          <p>
             We need two model classes: <code>Message</code> and <code>Response</code> (for comments). These will be mapped to database tables. As they are simple POJOs, we just need to mark them with appropriate DbOom database mapping annotations.
           </p>
 
@@ -319,11 +318,10 @@ public class Message {
     private String text;
 
     // ...getters and setters...
-}
-        </code>
+}</code>
       </pre>
 
-            <p >
+            <p>
               ... and comments class:
             </p>
 
@@ -342,8 +340,7 @@ public class Response {
     private long messageId;
 
     // ...getters and setters...
-}
-        </code>
+}</code>
       </pre>
 
             <p>Once again, simple POJOs with Jodd annotations.</p>
@@ -356,7 +353,7 @@ public class Response {
 
           <h3>Database configuration</h3>
 
-          <p >
+          <p>
             It is a good practice to have a prefix for database tables used by the application. We can specify it in Jodd's annotations, but better way would be to specify the default prefix for all entity beans. This is done in <code>joy.props</code>.
             While there, we can also enable the debug mode for more verbose logs.
           </p>
@@ -381,7 +378,7 @@ db.dbOomConfig.tableNames.prefix=jd_
             Since our method is accessing database, it has to run under database transaction. To enable database session for the method we just need to mark it with transactional annotation.
           </p>
 
-          <p >
+          <p>
             Instead of SQL, we will write queries using T-SQL (Template SQL). It's an extension to common SQL that provides special macros that may reference our Java entities. This significantly simplifies writing of native SQL queries!
           </p>
 
@@ -401,8 +398,7 @@ public class AppService {
 
         return dbquery.list(Message.class);
     }
-}
-        </code>
+}</code>
       </pre>
 
             <p>
@@ -412,14 +408,14 @@ public class AppService {
             <p>
               Noticed the <code>@ReadOnlyTransaction</code> annotation? Yeah, that is all what is required to supply your database code with transactional database session.
             </p>
-            
+
           </div>
 
           <p>Awesome, right?!</p>
 
           <h3>View</h3>
 
-          <p >
+          <p>
             For the web layer, we need a Madvoc action and JSP that renders the result. Madvoc action is a simple bean, annotated with <code>@MadvocAction</code>. Created on every request, Madvoc action is aware of container's context and you can inject
             your services easily.
           </p>
@@ -440,8 +436,7 @@ public class IndexAction {
     public void view() {
         messages = appService.findLastMessages(10);
     }
-}
-        </code>
+}</code>
       </pre>
 
             <p>
@@ -449,7 +444,7 @@ public class IndexAction {
             </p>
           </div>
 
-          <p >
+          <p>
             Madvoc actions uses simple conventions and smart annotation to define input and outputs and target JSP. In our example we have just one output, the list of messages.
           </p>
 
@@ -467,8 +462,7 @@ public class IndexAction {
 &lt;/j:iter&gt;
 &lt;/ul&gt;
 &lt;/body&gt;
-&lt;/html&gt;
-        </code>
+&lt;/html&gt;</code>
       </pre>
 
             <p>
@@ -513,7 +507,7 @@ public class IndexAction {
 
           <h3>Model</h3>
 
-          <p >
+          <p>
             Add a list of <code>Response</code> objects to the <code>Message</code> class as a simple property. It will hold comments, but only when we want so. That is important to remember: the related comments will not be automatically pre- or lazy-fetched.
             Instead, we just map them and use when we want to have them. Alternatively, you can use different beans, depending on the relationship you need.
           </p>
@@ -532,8 +526,7 @@ public class Message {
         return responses;
     }
 
-}
-        </code>
+}</code>
       </pre>
 
             <p>
@@ -550,10 +543,10 @@ public class Message {
           </p>
 
           <p>
-            First is to inject comments into messages. By using DbOom <i>hints</i> we can tell in T-SQL that one result object is going to be injected or added into the property of another resulting object. In our case, we can define that <code>Response</code>            object is going to be added into the new list property of <code>Message</code> class.
+            First is to inject comments into messages. By using DbOom <i>hints</i> we can tell in T-SQL that one result object is going to be injected or added into the property of another resulting object. In our case, we can define that <code>Response</code> object is going to be added into the new list property of <code>Message</code> class.
           </p>
 
-          <p >
+          <p>
             Second is to prevent repetition of messages with the same id. When message has more then one comment, the same message data will be repeated in the joined results for every comment. This would give us many <code>Message</code> instances of
             the same entity (i.e. with the same ID). To fix this, we just need to enable
             <i>entityAware</i> mode that caches entities during the lifetime of a query.
@@ -575,8 +568,7 @@ public List&lt;Message&gt; findLastMessagesWithResponses(int count) {
     dbquery.setInteger("count", count);
 
     return dbquery.list(Message.class, Response.class);
-}
-        </code>
+}</code>
       </pre>
 
             <p>
@@ -588,7 +580,7 @@ public List&lt;Message&gt; findLastMessagesWithResponses(int count) {
 
           <h3>View</h3>
 
-          <p >
+          <p>
             The change in the web layer is trivial. Our action has to call the new method and JSP has to display message's comments.
           </p>
 
@@ -605,8 +597,7 @@ public List&lt;Message&gt; findLastMessagesWithResponses(int count) {
         &lt;/ul&gt;
     &lt;/li&gt;
 &lt;/j:iter&gt;
-&lt;/ul&gt;
-        </code>
+&lt;/ul&gt;</code>
       </pre>
 
             <p>
@@ -650,7 +641,7 @@ public List&lt;Message&gt; findLastMessagesWithResponses(int count) {
 
           <h3>Service</h3>
 
-          <p >
+          <p>
             Jodd provides shortcuts for common database operation. You don't have to write queries for storing entities, finding them by ID or property value, updating, deleting etc. With help of <code>DbEntitySql</code> you can write simple one-liner
             calls in Java to achieve the same.
           </p>
@@ -665,8 +656,7 @@ public void addMessage(Message message) {
             .query()
             .autoClose()        // not mandatory, but nice
             .executeUpdate();
-}
-        </code>
+}</code>
       </pre>
           </div>
 
@@ -674,9 +664,9 @@ public void addMessage(Message message) {
             This time, however, we need to mark the service method with different Jodd's transaction annotation, notifying that transaction is not read-only.
           </p>
 
-          <h3>View<h3>
+          <h3>View</h3>
 
-    <p >
+    <p>
         Obviously, the web layer will get more changes. We need two more actions:
         one for showing a page with a form, and the other for handling
         form submissions. Both actions can be defined in the same class, which is convenient.
@@ -704,11 +694,10 @@ public class MessageAction {
         appService.addMessage(message);
         return "redirect:/&lt;index&gt;";
     }
-}
-        </code>
+}</code>
       </pre>
 
-        <p >
+        <p>
             This action defines two mappings: <code>/message.html</code> mapped to the <code>#view()</code>
             method and <code>/message.add</code> mapped to the <code>#add()</code> method. The first action handler
             just renders the form with the <code>message.jsp</code> page. The second action handler stores submitted message.
@@ -727,8 +716,7 @@ public class MessageAction {
 &lt;/form&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;
-        </code>
+&lt;/html&gt;</code>
       </pre>
 
         <p>
@@ -749,7 +737,7 @@ public class MessageAction {
 
     <h3>Alternative</h3>
 
-          <p >
+          <p>
             There is even a shorter alternative for basic manipulation on an entity. By using <code>GenericDao</code> (or somewhat enhanced <code>AppDao</code>) you can perform basic database operation using just single method call.
           </p>
 
@@ -762,12 +750,11 @@ AppDao appDao;
 @ReadWriteTransaction
 public void addMessageAlt(Message message) {
     appDao.store(message);
-}
-        </code>
+}</code>
       </pre>
           </div>
 
-          <p >
+          <p>
             There is another alternative: use <code>Result</code> to specify redirection in web action. With this helper class you will be able to define handle to any action method by virtually calling it! Then you don't need to define any custom alias
             for actions.
           </p>
@@ -787,8 +774,7 @@ public class MessageAction {
         result.redirectTo(IndexAction.class).view();
     }
 
-}
-        </code>
+}</code>
       </pre>
 
             <p>
@@ -831,7 +817,7 @@ public class MessageAction {
             <code>@RestAction</code> instead! Note that each annotation comes with different configuration. The <code>@RestAction</code> uses different mapping convention: action method names now should start with HTTP method names.
           </p>
 
-          <p >
+          <p>
             Let's add a new action class: <code>MessageAction</code> and action method <code>get()</code>. There is also a nice way how to specify path patterns that will be matched and populated into the <code>@In</code> parameters, just use string template
             and <code>{}</code> macros.
           </p>
@@ -849,8 +835,7 @@ public class MessageAction {
     @RestAction("{messageId}")
     public Message get(@In long messageId) {
         return appService.findMessageById(messageId);
-    }
-            </code>
+    }</code>
           </pre>
           </div>
 
