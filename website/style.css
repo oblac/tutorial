@@ -32,6 +32,7 @@ ul li {
 	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 	font-size: 18px;
 	color: #222;
+	text-align: justify;
 }
 div.p,
 p,
@@ -62,11 +63,10 @@ h3,
 h2 a {
 	font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
 	text-align: center;
-}
-h2 a {
 	font-size: 30px;
 	color: #555;
 	border: 0;
+	padding: 10px 20px;
 }
 h1 {
 	font-size: 80px;
@@ -645,7 +645,8 @@ p.gap {
 	pre {
 		margin: 0 0 10px 0;
 		padding: 0 10px;
-		overflow-x: scroll;
+		overflow-x: auto;
+		overflow-y: hidden;
 	}
 
 	.section:after {
