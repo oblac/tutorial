@@ -75,6 +75,7 @@ function initLogoAnimation(finalDestination) {
 	}, 2100);
 
 	setTimeout(function() {
+		$('.animated-logo').removeClass('animate-fast').addClass('animate');
 		$('.animated-logo').css({ 'top': 80 + 'px', 'left': finalDestination + 'px', 'transform': 'rotate(0deg)'});
 	}, 2400);
 }
