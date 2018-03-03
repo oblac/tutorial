@@ -30,19 +30,15 @@
         <div class="text">
 
           <p id="mission">
-            We want to inspire the world to create.
-            To use tech skills and build something truly... Awesome. Beautiful. Helpful. Changing.
-            Now you are free to code lightweight and focus to unleash your potential.
-            Jodd is set of developer friendly and open-source Java micro-frameworks;
-            designed to make things simple, but not simpler.
+            We want to inspire the world to create. To use tech skills and build something truly... Awesome. Beautiful. Helpful. Impactful. Now you can produce lightweight code and focus on unleashing your full potential. Jodd is a set of developer-friendly and open-source Java micro-frameworks. It's designed to make things simple, but not simpler.
           </p>
 
           <p>
-            This tutorial is a good place to get an overview of how Jodd works. That's what we have here: a step-by-step example of how to build a web application with just Jodd. In just 30 minutes, you will get from "zero to hero".
+            This tutorial is a good place to get an overview of how Jodd works. That's what we have here: a step-by-step example of how to build a web application using Jodd only. In just 30 minutes, you will get from "zero to hero".
           </p>
 
           <p>
-            Tutorial explains the making of a simple web app from scratch: one that shows messages and message comments stored in the database; like a simple blog.
+            The tutorial explains how to make a simple web app from scratch: an app that shows messages and message comments stored in the database, just like a simple blog.
           </p>
 
           <p>
@@ -69,14 +65,14 @@
         <div class="text">
           <h2>Prepare Yourself</h2>
           <p>
-            The first step is not about the Jodd at all. We will prepare the infrastructure instead: project folders, Gradle, Tomcat and MySql.
+            The first step is not about Jodd at all. Instead, we will lay down the infrastructure: project folders, Gradle, Tomcat, and MySql.
           </p>
           <p class="info">
-            Please <a href="https://github.com/oblac/tutorial">checkout the tutorial</a> - we have all the files you need already prepared for you!
+            Please <a href="https://github.com/oblac/tutorial">check out this tutorial</a> - we have prepared all the files you need!
           </p>
           <h3>Folders</h3>
           <p>
-            In the project's root, create <a href="https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html" target="_blank">standard Maven folder layout</a> for web projects.
+            In the project's root, create <a href="https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html" target="_blank">a standard Maven folder layout</a> for web projects.
           <p>
 
             <div class="more m1">
@@ -94,8 +90,7 @@
 
               <h3>Gradle</h3>
               <p>
-                We will use <a href="http://www.gradle.org/" target="_blank">Gradle</a> for building; be sure to have it installed. Create a simple <code>build.gradle</code> script and add the single dependency to <a href="http://jodd.org/joy" title="What is Jodd Joy?">Jodd Joy</a>.
-                That's all what we need for now :)
+                We will use <a href="http://www.gradle.org/" target="_blank">Gradle</a> for building; make sure you have it installed. Create a simple <code>build.gradle</code> script and add a single dependency to <a href="http://jodd.org/joy" title="What is Jodd Joy?">Jodd Joy</a>. That's all we need for now :)
               </p>
               <div class="more m1">
                 <pre>
@@ -110,19 +105,17 @@ dependencies {
 }</code>
           </pre>
           <p>
-            Execute the following command in the project's root: <code>gradle wrapper</code> to initialize your Gradle project. This will create the shell script
-            <code>gradlew</code> in your root that you can use now on to run the build process.
+            Execute the following command in the project's root: <code>gradle wrapper</code> to initialize your Gradle project. This will create the shell script <code>gradlew</code> in your root which you can use from now on to run the build process.
           </p>
         </div>
         <h3>IDE</h3>
         <p>
-          Once when gradle is set, open the project in your IDE. Create web artifact that can be deployed.
-          <a href="http://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA</a> works very nicely with this setup.
+          Once you set the Gradle, open the project in your IDE. Create a web artifact that can be deployed.
+          <a href="http://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA</a> works nicely with this setup.
         </p>
         <h3>Database</h3>
         <p>
-          It's time to set up the database: <code>jodd-tutorial</code> in the <a href="http://www.mysql.com/" target="_blank">MySql</a>. We have just two tables: <code>jd_message</code> and <code>jd_response</code>: one message may have several
-          comments. Yes, we made a bad decision by naming the 'comments' as 'responses'; please forgive us.
+          It's time to set up the database: <code>jodd-tutorial</code> in the <a href="http://www.mysql.com/" target="_blank">MySql</a>. There are just two tables: <code>jd_message</code> and <code>jd_response</code>: one message may contain several comments. Yes, we've made a bad decision by naming the 'comments' 'responses'; please forgive us.
         </p>
         <div class="more m1">
           <p>
@@ -136,7 +129,7 @@ dependencies {
           </div>
           <h3>Tomcat</h3>
           <p>
-            Don't forget the <a href="http://tomcat.apache.org/" target="_blank">Tomcat</a>! Download and unzip latest Tomcat bundle. You may delete the default web application. Register new Tomcat installation in your IDE.
+            Don't forget the <a href="http://tomcat.apache.org/" target="_blank">Tomcat</a>! Download and unzip latest Tomcat bundle. You may delete the default web application. Register a new Tomcat installation in your IDE.
           </p>
           <p class="amore">
             <a href="#" onclick="return show(1);">View snippets &raquo;</a>
@@ -162,28 +155,28 @@ dependencies {
           <h2>Build The Core</h2>
 
           <p>
-            The first and foremost is to build the simplest web app possible that just works. Let's start!
+            First thing's first. We need to build the simplest web app possible that works. Let's start!
           </p>
 
           <p>
-            There are only 3 things we have to do now:
+            There are only 3 things we have to do for now:
           </p>
 
           <ul>
-            <li>Add gradle dependecies,</li>
-            <li>Register web application,</li>
-            <li>Set database connection properties.</li>
+            <li>Add Gradle dependecies,</li>
+            <li>Register the web application,</li>
+            <li>Set the database connection properties.</li>
           </ul>
 
           <p class="info">
-            Again, the source for this step awaits you on the <a href="https://github.com/oblac/tutorial/tree/master/step02">GitHub</a>!
+            Again, the source for this step awaits on <a href="https://github.com/oblac/tutorial/tree/master/step02">GitHub</a>!
           </p>
 
 
           <h3>Gradle dependencies</h3>
 
           <p>
-            Obviously, we need to add some more dependencies: for MySql driver and servlets jars.
+            Obviously, we'll need to add some more dependencies: for the MySql driver and servlets jars.
           </p>
 
           <div class="more m2">
@@ -202,7 +195,7 @@ dependencies {
           <h3>Web application</h3>
 
           <p>
-            While we can register it in <code>web.xml</code>, more convenient way would be to simply create a <code>WebListener</code> based on <code>JoyContextListener</code> class. That is all we need for now: just an empty subclass annotated with
+            Though we can register the app in <code>web.xml</code>, it's easier to simply create a <code>WebListener</code> based on the <code>JoyContextListener</code> class. This is all we need for now: just an empty subclass annotated with
             <code>@WebListener</code> annotation.
           </p>
 
@@ -218,8 +211,7 @@ dependencies {
 
           <h3>Properties</h3>
           <p>
-            By default, Jodd Joy properties are stored in the file <code>joy.props</code>, located in the classpath root. Props file is a powerful extension of Java properties. The initial properties just set the database connection and the connection
-            pool.
+            By default, Jodd Joy properties are stored in the <code>joy.props</code> file, located in the classpath root. The props file is a powerful extension with Java properties. The initial properties just set the database connection and the connection pool.
           </p>
 
           <div class="more m2">
@@ -242,14 +234,14 @@ dbpool.waitIfBusy=true</code>
       </pre>
 
             <p>
-              Make sure that <code>*.props</code> files are being recognized as resources by your IDE.
+              Make sure that your IDE recognizes <code>*.props</code> files as resources.
             </p>
 
           </div>
 
           <h3>Run!</h3>
           <p>
-            And that is all! Just 3 simple steps is all you need to run the web application :)
+            And that's all! These three simple steps are all you need to run the web application :)
           </p>
 
           <div class="more m2">
@@ -262,7 +254,7 @@ dbpool.waitIfBusy=true</code>
 
           </div>
           <p>
-            Yes, you can start the Tomcat now and check that everything works. Just watch the Tomcat's log - the app should be up in couple of seconds!
+            Yes, you can start Tomcat now and check if everything works. Just watch Tomcat's log - the app should be up in a couple of seconds!
           </p>
 
           <p class="amore">
@@ -288,17 +280,17 @@ dbpool.waitIfBusy=true</code>
 
           <h2>Show Me Some Messages</h2>
 
-          <p>We can start coding our application now! Let's display last 10 messages on the index page.</p>
+          <p>We can start coding our application! Let's display the last 10 messages on the index page.</p>
 
           <p class="info">
-            This step requires somewhat more coding.
+            This step requires some more coding.
             <a href="https://github.com/oblac/tutorial/tree/master/step03">Download it all</a> instead! Or go ahead and fire up that keyboard!
           </p>
 
           <h3>Model</h3>
 
           <p>
-            We need two model classes: <code>Message</code> and <code>Response</code> (for comments). These will be mapped to database tables. As they are simple POJOs, we just need to mark them with appropriate DbOom database mapping annotations.
+            We need two model classes: <code>Message</code> and <code>Response</code> (for comments). These will be mapped to the database tables. As they are simple POJOs, we just need to mark them with appropriate DbOom database mapping annotations.
           </p>
 
           <div class="more m3">
@@ -347,15 +339,13 @@ public class Response {
           </div>
 
           <p>
-            Note that we didn't say anything about relationship between these two entities. We will discuss this in more details later; for now just keep in mind that Jodd is all about <i>mapping</i>, so relations are not defined up in front. Instead,
-            you define them with your queries <i>when needed</i>.
+            Please note that we haven't said anything about the relationship between these two entities. We will discuss this in more detail later; for now, just keep in mind that Jodd is all about <i>mapping</i>, so relations are not defined up front. Instead, you'll define them with your queries <i>when needed</i>.
           </p>
 
           <h3>Database configuration</h3>
 
           <p>
-            It is a good practice to have a prefix for database tables used by the application. We can specify it in Jodd's annotations, but better way would be to specify the default prefix for all entity beans. This is done in <code>joy.props</code>.
-            While there, we can also enable the debug mode for more verbose logs.
+            It's a good practice to use a prefix for the database tables that your application uses. We can specify the prefix in Jodd annotations, but it's better to specify a default prefix for all entity beans. You can do this in <code>joy.props</code>. While you're at it, we can also enable the debug mode for more verbose logs.
           </p>
 
           <div class="more m3">
@@ -370,16 +360,15 @@ db.dbOomConfig.tableNames.prefix=jd_
           <h3>Java Service</h3>
 
           <p>
-            Finally, it's time to read the database and return the data! We are going to write a bean containing the (business) logic. This bean will be marked as <code>@PetiteBean</code> to become registered in the application's Petite container. No
-            other registration is required!
+            Finally, it's time to read the database and return the data! We are going to write a bean that contains the (business) logic. We will mark this bean as <code>@PetiteBean</code> to have it registered in the application's Petite container. No other registration is required!
           </p>
 
           <p>
-            Since our method is accessing database, it has to run under database transaction. To enable database session for the method we just need to mark it with transactional annotation.
+            Since our method accesses the database, it has to run under a database transaction. To enable a database session for this method, we just need to mark it with a transactional annotation.
           </p>
 
           <p>
-            Instead of SQL, we will write queries using T-SQL (Template SQL). It's an extension to common SQL that provides special macros that may reference our Java entities. This significantly simplifies writing of native SQL queries!
+            Instead of SQL, we will write queries using T-SQL (Template SQL). It's an extension of the common SQL that provides special macros which may reference to our Java entities. This significantly simplifies writing native SQL queries!
           </p>
 
           <div class="more m3">
@@ -402,11 +391,11 @@ public class AppService {
       </pre>
 
             <p>
-              Our service is simple POJO class, annotated with <code>@PetiteBean</code> annotation. Nothing else is needed, no XML files, registration etc. Moreover, you may use plain SQL queries instead if wish so.
+              Our service is simple POJO class, annotated with <code>@PetiteBean</code> annotation. You need nothing else, no XML files, registration, etc. And you may use plain SQL queries instead if you wish so.
             </p>
 
             <p>
-              Noticed the <code>@ReadOnlyTransaction</code> annotation? Yeah, that is all what is required to supply your database code with transactional database session.
+              Noticed the <code>@ReadOnlyTransaction</code> annotation? Yeah, that's all that's required to supply your database code with a transactional database session.
             </p>
 
           </div>
@@ -416,8 +405,7 @@ public class AppService {
           <h3>View</h3>
 
           <p>
-            For the web layer, we need a Madvoc action and JSP that renders the result. Madvoc action is a simple bean, annotated with <code>@MadvocAction</code>. Created on every request, Madvoc action is aware of container's context and you can inject
-            your services easily.
+            For the web layer, we'll need a Madvoc action and JSP that renders the result. Madvoc action is a simple bean, annotated with <code>@MadvocAction</code>. Created on every request, Madvoc action recognizes the container's context and you can easily inject your services.
           </p>
 
           <div class="more m3">
@@ -440,12 +428,12 @@ public class IndexAction {
       </pre>
 
             <p>
-              Madvoc actions are automatically registered by default. You can change that and use manual registration instead!
+              Madvoc actions are automatically registered by default. You can use manual registration instead!
             </p>
           </div>
 
           <p>
-            Madvoc actions uses simple conventions and smart annotation to define input and outputs and target JSP. In our example we have just one output, the list of messages.
+            Madvoc action uses simple conventions and smart annotation to define input and outputs and target JSP. Our example has only one output – a list of messages.
           </p>
 
           <div class="more m3">
@@ -466,14 +454,14 @@ public class IndexAction {
       </pre>
 
             <p>
-              Another gem for you: there is entire powerful tag library you can use in your JSPs!
+              Another gem for you: there is an entire powerful tag library you can use in your JSPs!
             </p>
           </div>
 
           <h3>Run!</h3>
 
           <p>
-            Start Tomcat and go to <code>http://localhost:8080/index.html</code>. You will see last 10 messages!
+            Start Tomcat and go to <code>http://localhost:8080/index.html</code>. You will see the last 10 messages!
           </p>
 
           <p class="amore">
@@ -498,7 +486,7 @@ public class IndexAction {
           <h2>Messages and Comments</h2>
 
           <p>
-            It's time to display related comments of the messages.
+            It's time to display messages-related comments.
           </p>
 
           <p class="info">
@@ -509,8 +497,7 @@ public class IndexAction {
           <h3>Model</h3>
 
           <p>
-            Add a list of <code>Response</code> objects to the <code>Message</code> class as a simple property. It will hold comments, but only when we want so. That is important to remember: the related comments will not be automatically pre- or lazy-fetched.
-            Instead, we just map them and use when we want to have them. Alternatively, you can use different beans, depending on the relationship you need.
+            Add a list of <code>Response</code> objects to the <code>Message</code> class as a simple property. It will hold comments, but only when we want so. It's important to remember this: related comments will not be automatically pre- or lazy-fetched. Instead, we just map them and use them when we want to. Alternatively, you can use different beans, depending on the relationship you need.
           </p>
 
           <div class="more m4">
@@ -539,18 +526,15 @@ public class Message {
           <h3>Service</h3>
 
           <p>
-            To fetch all messages and their (optional) comments, we need a left join between these two tables. If we just change the query and add an additional mapping, then each row of the result set will be mapped to <code>Object[2]</code>, holding
-            a message and it's single comment. We don't want that! Instead we want to have a single message filled up with all its comments (stored in the new property). Here is how we can do this in an easy way.
+            To fetch all messages and their (optional) comments, we need a left join between these two tables. If we simply change the query and add additional mapping, then each row of the result set will be mapped to <code>Object[2]</code> – it will hold the message and its single comment. We don't want that! Instead, we want to have a single message filled up with all its comments (stored in the new property). Here's an easy way to do it.
           </p>
 
           <p>
-            First is to inject comments into messages. By using DbOom <i>hints</i> we can tell in T-SQL that one result object is going to be injected or added into the property of another resulting object. In our case, we can define that <code>Response</code> object is going to be added into the new list property of <code>Message</code> class.
+            First, we inject comments into messages. Using DbOom <i>hints</i> lets us specify T-SQL so that one result object is injected or added into the property of another resulting object. In our case, we can define that <code>Response</code> object is added into the new list property of <code>Message</code> class.
           </p>
 
           <p>
-            Second is to prevent repetition of messages with the same id. When message has more then one comment, the same message data will be repeated in the joined results for every comment. This would give us many <code>Message</code> instances of
-            the same entity (i.e. with the same ID). To fix this, we just need to enable
-            <i>entityAware</i> mode that caches entities during the lifetime of a query.
+            Secondly, we prevent the repetition of messages with the same id. When a message has more than one comment, the same message data will be repeated in the joined results for each comment. This would give us many <code>Message</code> instances of the same entity (i.e. with the same ID). To fix this, we just need to enable <i>entityAware</i> mode that caches entities during the lifetime of a query.
           </p>
 
           <div class="more m4">
@@ -573,8 +557,7 @@ public List&lt;Message&gt; findLastMessagesWithResponses(int count) {
       </pre>
 
             <p>
-              When <i>entityAware</i> mode is enabled two effects will be applied. First, all entities during the lifetime of a query will be cached, so no two instances of the same entity will exist. Second, result set rows will be compacted if needed.
-              For example, if one message has two comments, that would give two rows in the result set. By compacting we will get one message with two comments in the list.
+              When <i>entityAware</i> mode is enabled, two things will happen. First, all entities during the lifetime of a query will be cached, so there will be no two instances of the same entity.Second, the result set rows will be compacted if needed. For example, if one message has two comments, that would give two rows in the result set. Compaction gives us one message with two comments in the list.
             </p>
 
           </div>
@@ -582,7 +565,7 @@ public List&lt;Message&gt; findLastMessagesWithResponses(int count) {
           <h3>View</h3>
 
           <p>
-            The change in the web layer is trivial. Our action has to call the new method and JSP has to display message's comments.
+            The change in the web layer is trivial. Our action has to call a new method and JSP has to display the message comments.
           </p>
 
           <div class="more m4">
@@ -633,19 +616,18 @@ public List&lt;Message&gt; findLastMessagesWithResponses(int count) {
           <h2>Add A New Message</h2>
 
           <p>
-            So far we have been just reading from the database. Let's see now how to add some new messages.
+            So far, we've just been reading from the database. Let's see now how to add some new messages.
           </p>
 
           <p class="info">
             Congratulations, we are almost done!
-            <a href="https://github.com/oblac/tutorial/tree/master/step05">Keep the track</a> with code changes or just type them along with us!
+            <a href="https://github.com/oblac/tutorial/tree/master/step05">Keep track</a> with code changes or just type them along with us!
           </p>
 
           <h3>Service</h3>
 
           <p>
-            Jodd provides shortcuts for common database operation. You don't have to write queries for storing entities, finding them by ID or property value, updating, deleting etc. With help of <code>DbEntitySql</code> you can write simple one-liner
-            calls in Java to achieve the same.
+            Jodd provides shortcuts for common database operation. You don't have to write queries for storing entities, searching for them by ID or property value, updating, deleting, etc. With the help of <code>DbEntitySql</code> you can write simple one-liner calls in Java to get the same result.
           </p>
 
           <div class="more m5">
@@ -663,16 +645,13 @@ public void addMessage(Message message) {
           </div>
 
           <p>
-            This time, however, we need to mark the service method with different Jodd's transaction annotation, notifying that transaction is not read-only.
+            This time, however, we need to mark the service method with a different Jodd's transaction annotation, which signals that the transaction is not read-only.
           </p>
 
           <h3>View</h3>
 
     <p>
-        Obviously, the web layer will get more changes. We need two more actions:
-        one for showing a page with a form, and the other for handling
-        form submissions. Both actions can be defined in the same class, which is convenient.
-        The form handler will not have any extension and will handle only <code>POST</code> requests.
+        Obviously, there will be more changes to the web layer. We need two more actions: one to show a page with a form, and the other to handle form submissions. We can define both actions in the same class, which is convenient. The form handler won't have any extension and will handle only <code>POST</code> requests.
     </p>
 
     <div class="more m5">
@@ -722,25 +701,21 @@ public class MessageAction {
       </pre>
 
         <p>
-            There is one thing to notice here: the name of the parameter: "<code>message.text</code>".
-            It specifies where the submitted value will be injected into. Since we have the <code>message</code>
-            property of the action marked with <code>@In</code>, text value will be inserted into
-            message property <code>text</code>, after new instance of <code>Message</code> is created.
+            There is one thing to notice here - the name of the parameter: "<code>message.text</code>".
+            It specifies where the submitted value will be injected into. Since the <code>message</code>
+            property of the action is marked with <code>@In</code>, text value will be inserted into
+            message property <code>text</code>, after a new instance of <code>Message</code> is created.
         </p>
     </div>
 
     <p>
-        After the new message is submitted and stored in the database, we want to redirect to the index page.
-        While we can do this by hardcoding the page's path, there are better ways to do the same.
-        One way is using <i>aliases</i>. Every action method has it's alias name and that alias handle
-        represents the path of the action. So even if you change your code and rename the handler method,
-        Jodd will find the aliased target path.
+        After the new message is submitted and stored in the database, we'll want to redirect to the index page. While we can just hardcode the page path, there are better ways to go about it. One way is to use <i>aliases</i>. Each action method has its alias name and that alias handle represents an action path. So even if you change your code and rename the handler method, Jodd will find the aliased target path.
     </p>
 
-    <h3>Alternative</h3>
+    <h3>Alternatives</h3>
 
           <p>
-            There is even a shorter alternative for basic manipulation on an entity. By using <code>GenericDao</code> (or somewhat enhanced <code>AppDao</code>) you can perform basic database operation using just single method call.
+            There is even a shorter alternative for basic manipulation of an entity. By using <code>GenericDao</code> (or somewhat enhanced <code>AppDao</code>) you can perform basic database operation using just a single method call.
           </p>
 
           <div class="more m5">
@@ -757,8 +732,7 @@ public void addMessageAlt(Message message) {
           </div>
 
           <p>
-            There is another alternative: use <code>Result</code> to specify redirection in web action. With this helper class you will be able to define handle to any action method by virtually calling it! Then you don't need to define any custom alias
-            for actions.
+            There is another option: use <code>Result</code> to specify the redirection in the web action. With this helper class you can define a handle for any action method by calling it! Then you don't need to define any custom aliases for actions.
           </p>
 
 
@@ -780,18 +754,18 @@ public class MessageAction {
       </pre>
 
             <p>
-              <code>Result</code> instances doesn't have to be explicitly instantiated like above. Moreover, you may use any <i>subclass</i> of <code>Result</code> with your additional helper methods.
+              <code>Result</code> instances don't have to be explicitly instantiated as shown above. You can use any <code>Result</code> <i>subclasses</i> with your additional helper methods.
             </p>
           </div>
 
           <p>
-            Alternative code works the same. It's up to you what to use :) That makes Jodd beautiful :)
+            The alternative code works the same. It's up to you to decide what to use :) That's what makes Jodd beautiful :)
           </p>
 
           <h3>Run</h3>
 
           <p>
-            Run your web application again. Go to <a href="http://localhost:8080/message.html">message page</a> and add new messages. It's fun! :)
+            Run your web application again. Go to the <a href="http://localhost:8080/message.html">message page</a> and add new messages. It's fun! :)
           </p>
 
           <p class="amore">
@@ -816,13 +790,11 @@ public class MessageAction {
           <h2>Give Me Some REST!</h2>
 
           <p>
-            Jodd is very flexible: there are always few different ways how to achieve the same thing. Adding REST api is easy: instead of using <code>@Action</code>, we can use
-            <code>@RestAction</code> instead! Note that each annotation comes with different configuration. The <code>@RestAction</code> uses different mapping convention: action method names now should start with HTTP method names.
+            Jodd is quite flexible: there are always several different ways to get to the same result. Adding a REST api is easy: instead of using <code>@Action</code>, we can use <code>@RestAction</code>! However, each annotation comes with a different configuration. The <code>@RestAction</code> uses a different mapping convention: action method names should now start with HTTP method names.
           </p>
 
           <p>
-            Let's add a new action class: <code>MessageAction</code> and action method <code>get()</code>. There is also a nice way how to specify path patterns that will be matched and populated into the <code>@In</code> parameters, just use string template
-            and <code>{}</code> macros.
+            Let's add a new action class: <code>MessageAction</code> and action method <code>get()</code>. There is also a nice way to specify path patterns that will be matched and populated into the <code>@In</code> parameters. Just use string template and <code>{}</code> macros.
           </p>
 
 
@@ -865,26 +837,22 @@ public class MessageAction {
           <h2>What We Have Learned?</h2>
 
           <p>
-            We hope this tutorial was enough to get you interested in Jodd. You have learned essentials of core Jodd micro-frameworks. There is <i>Petite</i> dependency-injection container for gluing the components. We use <i>Madvoc</i> for the web layer.
-            We talked to database using <i>DbOom</i> mapper, enabling JTX transaction using <i>Proxetta</i> proxies. And all our application components were simple beans, marked just with annotations.
+            We hope this tutorial has got you interested in Jodd. You have learned the essentials of core Jodd micro-frameworks. There is a <i>Petite</i> dependency-injection container to glue the components together. We use <i>Madvoc</i> for the web layer. We communicated with the database using the <i>DbOom</i> mapper, enabling the JTX transaction using the <i>Proxetta</i> proxies. And all the application components were simple beans, marked just with annotations.
           </p>
 
           <p>
-            In our tutorial we are using Jodd <i>Joy</i> - an application template for faster web application development. It is quite configurable and it combines the best Jodd practices with pragmatic approach.
+            In our tutorial, we use Jodd <i>Joy</i> - an application template for faster web application development. It is quite configurable and combines the best Jodd practices with a pragmatic approach.
           </p>
 
           <p>
-            Maybe the most important thing to learn from this example is that Jodd does not offer the single out-of box solution that claims to magically solve all problems. Instead, Jodd provides solid, but lightweight frameworks; giving you the freedom to code
-            your solutions the way you want.
+            Possibly the single most important thing to learn here is that Jodd doesn't offer a single out-of-the-box solution that claims to magically solve all the problems. Instead, Jodd provides solid, but lightweight frameworks; it gives you the freedom to code your solutions the way you want.
           </p>
 
 
           <h2>And Beyond!</h2>
 
           <p>
-            Many features of Jodd are not covered in this short tutorial. There are more micro-frameworks you would like to have in your application... You may continue by adding <i>Decora</i> page templates for entire site. Then you can optimize resources
-            using <i>HtmlStapler</i>. Why not add authentication and authorization interceptors? Forms may be validated using <i>VTor</i>. Or you can add more proxies using <i>Proxetta</i>. Or you may need to send some emails, fire few HTTP requests,
-            parse some HTML as simple as using jQuery; or just need simple utility methods... Jodd has it all.
+            There are many other Jodd features not that we haven't covered in this tutorial, such as various micro-frameworks you might like to use in your application... You may continue by adding <i>Decora</i> page templates for the entire site. Then you can optimize resources using <i>HtmlStapler</i>. Why not add authentication and authorization interceptors? Forms may be validated using <i>VTor</i>. Or, you can add more proxies using <i>Proxetta</i>. If you need to send some emails, fire a few HTTP requests, parse some HTML as if using jQuery; or just need simple utility methods... Jodd has it all.
           </p>
 
           <h2><a href="http://jodd.org">http://jodd.org</a></h2>
