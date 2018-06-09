@@ -17,5 +17,9 @@
 
 <a href="message.html">new message...</a>
 
+<br><br><br>
+
+<a href="/api/message/1">REST APi: message 1</a>
+
 </body>
 </html>

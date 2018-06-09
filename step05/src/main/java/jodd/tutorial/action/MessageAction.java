@@ -3,7 +3,8 @@ package jodd.tutorial.action;
 import jodd.madvoc.meta.Action;
 import jodd.madvoc.meta.In;
 import jodd.madvoc.meta.MadvocAction;
-import jodd.madvoc.meta.POST;
+import jodd.madvoc.meta.method.POST;
+import jodd.madvoc.result.Redirect;
 import jodd.petite.meta.PetiteInject;
 import jodd.tutorial.model.Message;
 import jodd.tutorial.service.AppService;
@@ -23,8 +24,8 @@ public class MessageAction {
 
 	@POST
 	@Action
-	public String add() {
+	public Redirect add() {
 		appService.addMessage(message);
-		return "redirect:/<ndx>";
+		return Redirect.to("<ndx>");
 	}
 }

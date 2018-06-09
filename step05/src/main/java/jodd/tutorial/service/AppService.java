@@ -1,7 +1,7 @@
 package jodd.tutorial.service;
 
+import jodd.db.DbOom;
 import jodd.db.oom.DbOomQuery;
-import jodd.db.oom.sqlgen.DbEntitySql;
 import jodd.db.oom.sqlgen.DbSqlBuilder;
 import jodd.jtx.meta.ReadOnlyTransaction;
 import jodd.jtx.meta.ReadWriteTransaction;
@@ -49,7 +49,8 @@ public class AppService {
 
 	@ReadWriteTransaction
 	public void addMessage(Message message) {
-		DbEntitySql
+		DbOom.get()
+			.entities()
 			.insert(message)
 			.query()
 			.autoClose()

@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.jodd:jodd-joy:4.1.1'
+    compile 'org.jodd:jodd-joy:5.0.0-20180609'
 }
 
 task wrapper(type: Wrapper) {

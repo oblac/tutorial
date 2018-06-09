@@ -1,6 +1,6 @@
 package jodd.tutorial.service;
 
-import jodd.db.oom.sqlgen.DbEntitySql;
+import jodd.db.DbOom;
 import jodd.db.oom.sqlgen.DbSqlBuilder;
 import jodd.jtx.meta.ReadOnlyTransaction;
 import jodd.jtx.meta.ReadWriteTransaction;
@@ -43,7 +43,8 @@ public class AppService {
 
 	@ReadWriteTransaction
 	public void addMessage(Message message) {
-		DbEntitySql
+		DbOom.get()
+			.entities()
 			.insert(message)
 			.query()
 			.autoClose()
@@ -52,7 +53,8 @@ public class AppService {
 
 	@ReadOnlyTransaction
 	public Message findMessageById(long messageId) {
-		return DbEntitySql
+		return DbOom.get()
+			.entities()
 			.findById(Message.class, messageId)
 			.query()
 			.autoClose()
